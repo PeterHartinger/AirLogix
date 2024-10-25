@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="941.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flightDomain.flightbook.controllers.LicenseController">
+    <children>
+
+        <Button onAction="#handleBackToMainView" prefHeight="45.0" prefWidth="1500" text="Zurück zur Hauptansicht" />
+        <Label prefHeight="119.0" prefWidth="443.0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-padding: 10;" text="Lizenzen erfassen">
+            <font>
+                <Font size="13.0" />
+            </font></Label>
+        <GridPane hgap="10" prefHeight="364.0" prefWidth="908.0" vgap="10">
+            <children>
+                <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Typ:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="typeField" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Ausgabedatum:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <DatePicker fx:id="dateOfIssuePicker" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Nummer:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="numberField" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Authority:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <TextField fx:id="authorityField" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <Button onAction="#saveLicense" prefHeight="45.0" prefWidth="248.0" text="Speichern" GridPane.rowIndex="4" />
+                <Button onAction="#updateLicense" prefHeight="45.0" prefWidth="248.0" text="Aktualisieren" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            </children>
+            <columnConstraints>
+                <ColumnConstraints maxWidth="217.0" minWidth="179.0" prefWidth="217.0" />
+                <ColumnConstraints maxWidth="257.0" minWidth="219.0" prefWidth="219.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints maxHeight="78.0" minHeight="0.0" prefHeight="36.0" />
+                <RowConstraints maxHeight="78.0" minHeight="0.0" prefHeight="42.0" />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+        </GridPane>
+
+        <HBox alignment="CENTER" prefHeight="73.0" prefWidth="586.0" spacing="10.0">
+            <padding>
+                <Insets left="-320.0" />
+            </padding>
+        </HBox>
+
+        <Label prefHeight="85.0" prefWidth="267.0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-padding: 10;" text="Lizenzen" />
+        <TableView fx:id="licenseTable" prefHeight="306.0" prefWidth="745.0">
+            <columns>
+                <TableColumn fx:id="typeColumn" prefWidth="144.0" text="Typ" />
+                <TableColumn fx:id="dateOfIssueColumn" prefWidth="121.0" text="Ausgabedatum" />
+                <TableColumn fx:id="numberColumn" prefWidth="156.0" text="Nummer" />
+                <TableColumn fx:id="authorityColumn" prefWidth="142.0" text="Authority" />
+                <TableColumn fx:id="actionsColumn" prefWidth="197.0" text="Aktionen" />
+            </columns>
+        </TableView>
+    </children>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+</VBox>

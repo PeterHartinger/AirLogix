@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="941.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flightDomain.flightbook.controllers.UserDetailsController">
+    <children>
+
+        <Button onAction="#handleBackToMainView" prefHeight="45.0" prefWidth="1500.0" text="Zurück zur Hauptansicht" />
+        <Label prefHeight="119.0" prefWidth="443.0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-padding: 10;" text="Benutzerdaten erfassen">
+            <font>
+                <Font size="13.0" />
+            </font></Label>
+        <GridPane hgap="10" prefHeight="364.0" prefWidth="908.0" vgap="10">
+            <children>
+                <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="nameField" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Anschrift:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField fx:id="addressField" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Geburtsdatum:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <DatePicker fx:id="birthdatePicker" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Geburtsort:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <TextField fx:id="birthplaceField" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Nationalität:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                <TextField fx:id="nationalityField" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                <Button onAction="#saveUser" prefHeight="45.0" prefWidth="248.0" text="Speichern" GridPane.rowIndex="5" />
+                <Button onAction="#updateUser" prefHeight="45.0" prefWidth="248.0" text="Aktualisieren" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            </children>
+            <columnConstraints>
+                <ColumnConstraints maxWidth="217.0" minWidth="179.0" prefWidth="217.0" />
+                <ColumnConstraints maxWidth="257.0" minWidth="219.0" prefWidth="219.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints maxHeight="78.0" minHeight="0.0" prefHeight="36.0" />
+                <RowConstraints maxHeight="78.0" minHeight="0.0" prefHeight="42.0" />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+        </GridPane>
+
+        <HBox alignment="CENTER" prefHeight="73.0" prefWidth="586.0" spacing="10.0">
+            <padding>
+                <Insets left="-320.0" />
+            </padding>
+        </HBox>
+
+        <Label prefHeight="85.0" prefWidth="267.0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-padding: 10;" text="Benutzerdaten" />
+        <TableView fx:id="userTable" prefHeight="306.0" prefWidth="745.0">
+            <columns>
+                <TableColumn fx:id="nameColumn" prefWidth="144.0" text="Name" />
+                <TableColumn fx:id="addressColumn" prefWidth="121.0" text="Anschrift" />
+                <TableColumn fx:id="birthdateColumn" prefWidth="156.0" text="Geburtsdatum" />
+                <TableColumn fx:id="birthplaceColumn" prefWidth="142.0" text="Geburtsort" />
+                <TableColumn fx:id="nationalityColumn" prefWidth="155.0" text="Nationalität" />
+                <TableColumn fx:id="actionsColumn" prefWidth="197.0" text="Aktionen" />
+            </columns>
+        </TableView>
+    </children>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+</VBox>

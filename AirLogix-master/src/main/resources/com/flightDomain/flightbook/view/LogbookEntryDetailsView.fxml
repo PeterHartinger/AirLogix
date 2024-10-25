@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane prefHeight="940.0" prefWidth="1213.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flightDomain.flightbook.controllers.LogbookEntryController">
+    <content>
+        <VBox prefHeight="1171.0" prefWidth="1713.0">
+            <children>
+                <Button onAction="#handleBackToMainView" prefHeight="45.0" prefWidth="1500.0" text="Zurück zur Hauptansicht" />
+                <Label prefHeight="119.0" prefWidth="443.0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-padding: 10;" text="Logbucheintrag erfassen">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Label>
+                <GridPane hgap="10" prefHeight="790.0" prefWidth="1044.0" vgap="10">
+                    <children>
+                        <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Flugdatum:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <DatePicker fx:id="flightDatePicker" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Von:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="flightFromComboBox" editable="true" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Nach:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="flightToComboBox" editable="true" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Flugzeug:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="airplaneComboBox" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Motortyp:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <TextField fx:id="engineTypeField" editable="false" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Abflugzeit:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                        <TextField fx:id="departureTimeField" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Ankunftszeit:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                        <TextField fx:id="arrivalTimeField" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Landungen bei Nacht:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                        <TextField fx:id="numLandingsNightField" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Landungen bei Tag:" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                        <TextField fx:id="numLandingsDayField" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="IFR-Zeit:" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+                        <TextField fx:id="ifrTimeField" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                        <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Nachtzeit:" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+                        <TextField fx:id="nightTimeField" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                        <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Pilot in Command:" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+                        <ComboBox fx:id="pilotInCommandComboBox" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                        <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Funktion des Piloten:" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+                        <ComboBox fx:id="pilotFunctionComboBox" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                        <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Funktion Zeit:" GridPane.columnIndex="0" GridPane.rowIndex="13" />
+                        <TextField fx:id="pilotFunctionTimeField" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                        <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Flugzeit:" GridPane.columnIndex="0" GridPane.rowIndex="14" />
+                        <TextField fx:id="flightTimeField" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                        <Label style="-fx-font-size: 18px; -fx-padding: 0 0 0 10px;" text="Bemerkungen:" GridPane.columnIndex="0" GridPane.rowIndex="15" />
+                        <TextField fx:id="remarkField" prefWidth="219.0" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+                        <Button onAction="#saveLogbookEntry" prefHeight="45.0" prefWidth="248.0" text="Speichern" GridPane.rowIndex="16" />
+                        <Button onAction="#updateLogbookEntry" prefHeight="45.0" prefWidth="248.0" text="Aktualisieren" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+                    </children>
+                    <columnConstraints>
+                        <ColumnConstraints maxWidth="217.0" minWidth="179.0" prefWidth="217.0" />
+                        <ColumnConstraints maxWidth="257.0" minWidth="219.0" prefWidth="219.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints maxHeight="78.0" minHeight="0.0" prefHeight="36.0" />
+                        <RowConstraints maxHeight="78.0" minHeight="0.0" prefHeight="42.0" />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints /> <!-- Added one more row constraint for the date picker -->
+                    </rowConstraints>
+                </GridPane>
+                <HBox alignment="CENTER" prefHeight="73.0" prefWidth="586.0" spacing="10.0">
+                    <padding>
+                        <Insets left="-320.0" />
+                    </padding>
+                </HBox>
+                <Label prefHeight="85.0" prefWidth="267.0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-padding: 10;" text="Logbucheinträge" />
+                <HBox prefHeight="400.0" prefWidth="1713.0">
+                    <children>
+                        <TableView fx:id="logbookEntryTable" prefHeight="119.0" prefWidth="1408.0" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="flightDateColumn" text="Datum"/>
+                                <TableColumn fx:id="flightFromColumn" text="Von" />
+                                <TableColumn fx:id="flightToColumn" text="Nach" />
+                                <TableColumn fx:id="airplaneColumn" text="Flugzeug" />
+                                <TableColumn fx:id="engineTypeColumn" prefWidth="56.0" text="Motortyp" />
+                                <TableColumn fx:id="departureTimeColumn" text="Abflugzeit" />
+                                <TableColumn fx:id="arrivalTimeColumn" text="Ankunftszeit" />
+                                <TableColumn fx:id="numLandingsNightColumn" prefWidth="56.0" text="Landungen bei Nacht" />
+                                <TableColumn fx:id="numLandingsDayColumn" prefWidth="56.0" text="Landungen bei Tag" />
+                                <TableColumn fx:id="ifrTimeColumn" prefWidth="56.0" text="IFR-Zeit" />
+                                <TableColumn fx:id="nightTimeColumn" prefWidth="56.0" text="Nachtzeit" />
+                                <TableColumn fx:id="pilotInCommandColumn" prefWidth="56.0" text="Pilot in Command" />
+                                <TableColumn fx:id="pilotFunctionColumn" prefWidth="56.0" text="Funktion des Piloten" />
+                                <TableColumn fx:id="pilotFunctionTimeColumn" prefWidth="56.0" text="Funktion Zeit" />
+                                <TableColumn fx:id="flightTimeColumn" prefWidth="56.0" text="Flugzeit" />
+                                <TableColumn fx:id="remarkColumn" prefWidth="56.0" text="Bemerkungen" />
+                                <TableColumn fx:id="actionsColumn" text="Aktionen" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+    </content>
+</ScrollPane>
